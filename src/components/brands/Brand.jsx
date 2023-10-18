@@ -15,8 +15,8 @@ const Brand = () => {
     
 
     return (
-       <div className="m-32">
-         <div className="grid grid-cols-3 gap-10">
+       <div className="lg:m-32 px-3 my-20">
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {
                 brands.map(brand=> <Link to={`/brand/${brand.brand_name}`}  key={brand.id} ><BrandCards brand={brand}></BrandCards></Link>)
             }
