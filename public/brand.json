@@ -1,0 +1,32 @@
+[
+    {   
+        "id": "1",
+        "image": "https://i.ibb.co/HDFWLB0/e2d9c066cf0f8addb0f2788627775dd9.jpg",
+        "brand_name": "Yamaha"
+    },
+    {   
+        "id": "2",
+        "image": "https://i.ibb.co/ph0zkzQ/Honda-Logo.jpg",
+        "brand_name": "Honda"
+    },
+    {   
+        "id": "3",
+        "image": "https://i.ibb.co/VHyS9mP/TVS-Motor-Logo.jpg",
+        "brand_name": "TVS Apache"
+    },
+    {   
+        "id": "4",
+        "image": "https://i.ibb.co/R3gb9XJ/Maruti-Suzuki-Logo-2019-1200x675.jpg",
+        "brand_name": "Maruti Suzuki"
+    },
+    {   
+        "id": "5",
+        "image": "https://i.ibb.co/7CZyQNP/Logo-Bajaj.jpg",
+        "brand_name": "Bajaj"
+    },
+    {   
+        "id": "6",
+        "image": "https://i.ibb.co/mN46YxV/royal-enfield-vector-logo.png",
+        "brand_name": "Royal Enfield"
+    }
+]
