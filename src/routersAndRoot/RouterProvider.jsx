@@ -7,6 +7,7 @@ import BrandProducts from "../components/brands/BrandProducts";
 import ProductDetails from "../components/brands/ProductDetails";
 import MyCart from "../components/myCarts/MyCart";
 import UpdateForm from "../components/myCarts/updateProduct/UpdateForm";
+import Register from "../components/Register";
 
 const myRouter = createBrowserRouter([
     {
@@ -39,6 +40,10 @@ const myRouter = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             },
             {
                 path: '/update/:id',
