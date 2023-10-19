@@ -52,7 +52,6 @@ const Adsbaneer = () => {
                 <p className="text-xl font-semibold w-1/2 text-white">{image.description}</p>
               </span>
             </div>
-            <button>JOIN TODAY</button>
           </div>
           
         ))}

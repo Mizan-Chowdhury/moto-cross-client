@@ -9,11 +9,13 @@ import MyCart from "../components/myCarts/MyCart";
 import UpdateForm from "../components/myCarts/updateProduct/UpdateForm";
 import Register from "../components/Register";
 import PrivateRouter from "./PrivateRouter";
+import Error from "../components/Error";
 
 const myRouter = createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path: '/',
@@ -30,7 +32,7 @@ const myRouter = createBrowserRouter([
             },
             {
                 path: '/details/:id',
-                element: <ProductDetails></ProductDetails>,
+                element: <PrivateRouter><ProductDetails></ProductDetails></PrivateRouter>,
                 loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
             },
             {
@@ -48,7 +50,7 @@ const myRouter = createBrowserRouter([
             },
             {
                 path: '/update/:id',
-                element: <UpdateForm></UpdateForm>
+                element: <PrivateRouter><UpdateForm></UpdateForm></PrivateRouter>
             }
         ]
     }

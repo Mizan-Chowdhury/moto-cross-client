@@ -10,12 +10,8 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
-    if(user){
-      Swal.fire(
-        '',
-        'You have successfully logged out.',
-        'success'
-      )
+    if (user) {
+      Swal.fire("", "You have successfully logged out.", "success");
     }
     logOut()
       .then((res) => {
@@ -50,7 +46,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`navbar fixed z-[3] px-2 md:px-10 top-0 left-0 right-0 ${
+      className={`navbar fixed z-[3] px-3 md:px-10 top-0 left-0 right-0 ${
         fix ? "nav fix-nav" : "nav"
       }`}
     >
@@ -78,34 +74,40 @@ const Navbar = () => {
                 <img src={user?.photoURL ? user.photoURL : avater} alt="" />
               </div>
             </label>
-            <ul
+            <div
               tabIndex={0}
               className="dropdown-content w-60 mt-2 z-[3] -ml-48 border rounded p-6 shadow text-neutral-content bg-black"
             >
+              <div>
               <img
-                className="rounded-full w-16 h-16 mx-auto"
-                src={user?.photoURL ? user.photoURL : avater}
-                alt=""
-              />
-              <h1 className="text-white text-center pt-2 pb-6">
-                {user?.displayName}
-              </h1>
-              <li className="lg:hidden">{navList}</li>
-              <li>
-                <Link
-                  onClick={handleLogOut}
-                  className="flex items-center gap-1"
-                  to={"/"}
-                >
-                  <span>Logout</span>
-                </Link>
-              </li>
-            </ul>
+                  className="rounded-full w-16 h-16 mx-auto"
+                  src={user?.photoURL ? user.photoURL : avater}
+                  alt=""
+                />
+                <h1 className="text-white text-xl text-center pt-2 pb-6">
+                  {user?.displayName}
+                </h1>
+              </div>
+              <ul className="text-lg">
+                <li className="lg:hidden">{navList}</li>
+                <li>
+                  <Link
+                    onClick={handleLogOut}
+                    className="flex items-center gap-1"
+                    to={"/"}
+                  >
+                    <span>Logout</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       ) : (
         <div className="navbar-end">
-          <NavLink className={'py-1 px-4 font-bold bg-[#EEA72B]'} to={"/login"}>Login</NavLink>
+          <NavLink className={"py-1 px-4 font-bold bg-[#EEA72B]"} to={"/login"}>
+            Login
+          </NavLink>
         </div>
       )}
     </div>

@@ -1,14 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../routersAndRoot/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
-
     const {googleSignIn} = useContext(AuthContext)
     const {signInUser} = useContext(AuthContext);
     const [error, setError] = useState('');
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location);
 
 
   const handleLogin = (e) => {
@@ -28,6 +30,7 @@ const Login = () => {
           )
           form.reset()
           setError('');
+          navigate(location?.state? location.state : '/')
     })
     .catch(err=>{console.log(err.message)
         setError(err.message)
@@ -45,6 +48,7 @@ const Login = () => {
             'You have successfully logged.',
             'success'
           )
+          navigate(location?.state? location.state : '/')
     })
     .catch(err=>{
         console.log(err);
