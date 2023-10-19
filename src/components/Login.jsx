@@ -1,20 +1,50 @@
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../routersAndRoot/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
 
     const {googleSignIn} = useContext(AuthContext)
+    const {signInUser} = useContext(AuthContext);
+    const [error, setError] = useState('');
 
 
-  const handleLogin = () => {};
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email,password)
+
+    signInUser(email,password)
+    .then(res=> {
+        console.log(res.user)
+        Swal.fire(
+            'Congratulations!',
+            'You have successfully logged.',
+            'success'
+          )
+          form.reset()
+          setError('');
+    })
+    .catch(err=>{console.log(err.message)
+        setError(err.message)
+    });
+
+  };
 
   const handleGoogleLogin = (e) => {
     e.preventDefault();
     googleSignIn()
     .then(res=> {
         console.log(res.user)
+        Swal.fire(
+            'Congratulations!',
+            'You have successfully logged.',
+            'success'
+          )
     })
     .catch(err=>{
         console.log(err);
@@ -52,7 +82,7 @@ const Login = () => {
             required
           />
         </div>
-        <p className="text-red-600">{}</p>
+        <p className="text-red-600">{error}</p>
         <div className="form-control mt-6">
           <button className="btn bg-[#EEA72B]">Login</button>
         </div>

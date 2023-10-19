@@ -8,6 +8,7 @@ import ProductDetails from "../components/brands/ProductDetails";
 import MyCart from "../components/myCarts/MyCart";
 import UpdateForm from "../components/myCarts/updateProduct/UpdateForm";
 import Register from "../components/Register";
+import PrivateRouter from "./PrivateRouter";
 
 const myRouter = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ const myRouter = createBrowserRouter([
             },
             {
                 path: '/product',
-                element: <MyProduct></MyProduct>
+                element: <PrivateRouter><MyProduct></MyProduct></PrivateRouter>
             },
             {
                 path: '/brand/:name',
@@ -34,7 +35,7 @@ const myRouter = createBrowserRouter([
             },
             {
                 path: '/cart',
-                element: <MyCart></MyCart>,
+                element: <PrivateRouter><MyCart></MyCart></PrivateRouter>,
                 loader: ()=>  fetch('http://localhost:5000/cart')
             },
             {

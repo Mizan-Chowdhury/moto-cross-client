@@ -4,16 +4,17 @@ import { AuthContext } from "../routersAndRoot/AuthProvider";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const [error, setError] = useState("");
 
   const handleRegister = (e) => {
     e.preventDefault();
-    const name = e.target.name.value;
-    const image = e.target.photo.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    console.log(name, password, email, image);
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name, password, email, photo);
 
     if (!/^(?=.*?[A-Z])(?=.*?[#?!@$%^&*-]).{6,}$/.test(password)) {
       setError(
@@ -23,8 +24,20 @@ const Register = () => {
       createUser(email, password)
         .then((res) => {
           console.log(res.user);
-          Swal.fire("Congratulations!", "You have successfully registered.");
-          setError('')
+            updateUserProfile(name, photo)
+            .then(res=> {
+                console.log(res);
+                Swal.fire(
+                    'Congratulations!',
+                    'You have successfully registered.',
+                    'success'
+                  )
+                  setError('')
+                  form.reset();
+            })
+            .catch(err=> {
+                setError(err.message);
+            })
         })
         .catch((err) => {
           console.log(err);
