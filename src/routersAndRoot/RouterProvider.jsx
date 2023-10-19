@@ -2,10 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "./Root";
 import Home from "../components/Home";
 import MyProduct from "../components/AddProduct";
-import MyCart from "../components/MyCart";
 import Login from "../components/Login";
 import BrandProducts from "../components/brands/BrandProducts";
 import ProductDetails from "../components/brands/ProductDetails";
+import MyCart from "../components/myCarts/MyCart";
+import UpdateForm from "../components/myCarts/updateProduct/UpdateForm";
 
 const myRouter = createBrowserRouter([
     {
@@ -32,11 +33,16 @@ const myRouter = createBrowserRouter([
             },
             {
                 path: '/cart',
-                element: <MyCart></MyCart>
+                element: <MyCart></MyCart>,
+                loader: ()=>  fetch('http://localhost:5000/cart')
             },
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/update/:id',
+                element: <UpdateForm></UpdateForm>
             }
         ]
     }

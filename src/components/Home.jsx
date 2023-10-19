@@ -1,4 +1,4 @@
-import Banner from "./Banner";
+import Banner from "./banner/Banner";
 import Brand from "./brands/Brand";
 
 const Home = () => {

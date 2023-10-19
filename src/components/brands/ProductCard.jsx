@@ -4,8 +4,8 @@ const ProductCard = ({ product }) => {
   const { _id, name, photo, type, brand, price, rating, description } = product;
   return (
     <div>
-      <div className="card h-[480px] bg-base-100 shadow-xl">
-        <figure className="h-60">
+      <div className="card bg-base-100 shadow-xl">
+        <figure className="md:h-60">
           <img className="h-full w-full" src={photo} alt="" />
         </figure>
         <div className="p-5">
@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
           </div>
           <div className="flex items-center justify-between mt-5 text-lg font-semibold">
             <Link to={`/details/${_id}`} className="text-[#EEA72B]">Detail</Link>
-            <Link to={'/update'} className="bg-[#EEA72B] px-2 rounded-lg">Update</Link>
+            <Link to={`/update/${_id}`} className="bg-[#EEA72B] px-2 rounded-lg">Update</Link>
           </div>
         </div>
       </div>

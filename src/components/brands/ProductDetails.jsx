@@ -1,20 +1,78 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
-  const { name, brand, photo, type, price, description } = useLoaderData();
+  const { name, brand, photo, type, price, description, rating } = useLoaderData();
+
+  const cartProduct = {
+    name,
+    brand, 
+    photo,
+    type,
+    price,
+    description,
+    rating
+  }
+
+  const handleAddProduct = (product) =>{
+
+    fetch('http://localhost:5000/cart',{
+      method: "POST",
+      headers: {
+        "content-type" : "application/json"
+      },
+      body: JSON.stringify(product)
+    })
+    .then(res=> res.json())
+    .then(data=> {
+      console.log(data);
+      if (data) {
+        Swal.fire("Good job!", "You added the product!", "success");
+      }
+    })
+
+    console.log(product);
+  }
+
+
+
   return (
-    <div className="px-28 flex items-center justify-center h-screen">
-      <div className="flex items-center justify-between">
-        <figure className="flex-1">
-          <img className="h-96 mx-auto" src={photo} alt="Album" />
-          <h2 className="text-center text-2xl font-bold">{name}</h2>
+    <div className=" md:grid grid-cols-3 my-20 px-5 lg:px-28">
+      <div className="col-span-2">
+        <figure>
+          <img className="" src={photo} alt="" />
+          <h2 className="text-center text-3xl font-bold">{name}</h2>
         </figure>
+      </div>
+
+
+      <div className="col-span-1 mt-20">
         <div className="flex-1">
-          <p className="text-lg font-medium">{description}</p>
-          <div>
-            
-          </div>
+          <h2 className="text-2xl font-semibold mb-3">Bike description</h2>
+          <p className="text-md font-medium text-[#706F6F]">{description}</p>
         </div>
+          <div className="mt-8">
+          <h1 className="text-2xl font-semibold mb-3">Bike Informations</h1>
+          <div className="border-2 p-3 space-y-2 rounded-lg border-[#EEA72B]">
+              <div className="flex justify-between">
+                  <p>Brand :</p>
+                  <p className="font-semibold">{brand}</p>
+              </div>
+              <div className="flex justify-between">
+                  <p>Type :</p>
+                  <p className="font-semibold">{type}</p>
+              </div>
+              <div className="flex justify-between">
+                  <p>Rating :</p>
+                  <p className="font-semibold">{rating}</p>
+              </div>
+              <div className="flex justify-between">
+                  <p>Price :</p>
+                  <p className="font-semibold">{price}</p>
+              </div>
+          </div>
+          </div>
+          <button onClick={()=> handleAddProduct (cartProduct)} className="btn bg-[#EEA72B] w-full">Add to cart</button>
       </div>
     </div>
   );
