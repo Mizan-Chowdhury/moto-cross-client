@@ -1,10 +1,20 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import Adsbaneer from "../banner/Adsbaneer";
+import ProductError from "./ProductError";
 
 const BrandProducts = () => {
   const brand = useParams();
   const products = useLoaderData();
+
+  if (products.length < 0) {
+    return (
+      <>
+        <Adsbaneer></Adsbaneer>
+        <ProductError></ProductError>
+      </>
+    );
+  }
 
   const brandProduct = products.filter(
     (product) => product.brand === brand.name
