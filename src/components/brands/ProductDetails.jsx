@@ -37,16 +37,16 @@ const ProductDetails = () => {
 
 
   return (
-    <div className=" md:grid grid-cols-3 my-20 px-5 lg:px-28">
+    <div className=" md:grid grid-cols-3 items-center py-20 px-5 lg:px-28">
       <div className="col-span-2">
         <figure>
-          <img className="" src={photo} alt="" />
-          <h2 className="text-center text-3xl font-bold">{name}</h2>
+          <img className="md:w-2/3 mx-auto" src={photo} alt="" />
+          <h2 className="text-center text-3xl font-bold mt-5">{name}</h2>
         </figure>
       </div>
 
 
-      <div className="col-span-1 mt-20">
+      <div className="col-span-1 mt-20 md:mt-10">
         <div className="flex-1">
           <h2 className="text-2xl font-semibold mb-3">Bike description</h2>
           <p className="text-md font-medium text-[#706F6F]">{description}</p>
