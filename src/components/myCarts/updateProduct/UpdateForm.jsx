@@ -2,71 +2,71 @@ import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateForm = () => {
-    const {id} = useParams();
+  const { id } = useParams();
 
-    const handleForm = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const photo = form.photo.value;
-        const name = form.name.value;
-        const brand = form.brand.value;
-        const type = form.type.value;
-        const price = form.price.value;
-        const rating = form.rating.value;
-    
-        const updateProduct = {
-          photo,
-          name,
-          brand,
-          type,
-          price,
-          rating,
-        };
+  const handleForm = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const photo = form.photo.value;
+    const name = form.name.value;
+    const brand = form.brand.value;
+    const type = form.type.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
 
-        console.log(updateProduct, id);
-        
-
-        fetch(`http://localhost:5000/product/${id}`,{
-            method: "PUT",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(updateProduct)
-        })
-        .then(res=> res.json())
-        .then(data=> {
-            console.log(data);
-            Swal.fire(
-                'Good job!',
-                'You Updated the product successfully!',
-                'success'
-              )
-            form.reset();
-        })
-
+    const updateProduct = {
+      photo,
+      name,
+      brand,
+      type,
+      price,
+      rating,
     };
 
+    console.log(updateProduct, id);
 
-    return (
-        <div className="bg-[#F4F3F0] px-5 py-32 lg:px-32 md:h-[100vh]">
+    fetch(
+      `https://moto-cross-server-side-k28hjnojl-mizan-chowdhurys-projects.vercel.app/product/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateProduct),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        Swal.fire(
+          "Good job!",
+          "You Updated the product successfully!",
+          "success"
+        );
+        form.reset();
+      });
+  };
+
+  return (
+    <div className="bg-[#F4F3F0] px-5 py-32 lg:px-32 md:h-[100vh]">
       <h1 className="text-center text-2xl md:text-4xl font-bold mb-10">
         Update The Product
       </h1>
       <form onSubmit={handleForm}>
         <div className="md:flex gap-10">
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="font-semibold">Photo url</span>
-          </label>
-          <input
-            required
-            type="text"
-            name="photo"
-            placeholder="Type here"
-            className="input input-bordered w-full"
-          />
-        </div>
-        <div className="form-control w-full">
+          <div className="form-control w-full">
+            <label className="label">
+              <span className="font-semibold">Photo url</span>
+            </label>
+            <input
+              required
+              type="text"
+              name="photo"
+              placeholder="Type here"
+              className="input input-bordered w-full"
+            />
+          </div>
+          <div className="form-control w-full">
             <label className="label">
               <span className="font-semibold">Product name</span>
             </label>
@@ -142,7 +142,7 @@ const UpdateForm = () => {
         </div>
       </form>
     </div>
-    );
+  );
 };
 
 export default UpdateForm;

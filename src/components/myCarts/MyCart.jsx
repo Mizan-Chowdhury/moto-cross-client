@@ -18,17 +18,16 @@ const MyCart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/cart/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://moto-cross-server-side-k28hjnojl-mizan-chowdhurys-projects.vercel.app/cart/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
             const remaining = carts.filter((cart) => cart._id !== _id);
             setCarts(remaining);
           });
