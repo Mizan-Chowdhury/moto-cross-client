@@ -42,14 +42,15 @@ const Adsbaneer = () => {
         {slideImages.map((image, index) => (
           <div key={index}>
             <div
+            className=""
               style={{
                 ...divStyle,
                 backgroundImage: `url(${image.url})`,
               }}
             >
-              <span className="px-5" style={spanStyle}>
+              <span className="md:p-20 p-5 bg-black bg-opacity-40" style={spanStyle}>
                 <h1 className="text-5xl text mb-5 font-bold text-[#EEA72B]">{image.caption}</h1>
-                <p className="text-xl font-semibold w-1/2 text-white">{image.description}</p>
+                <p className="text-xl font-semibold md:w-2/3 text-[#d8d8d8]">{image.description}</p>
               </span>
             </div>
           </div>

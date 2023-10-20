@@ -16,3 +16,5 @@ Click here for the private repo: [https://assigments-de09b.web.app](https://assi
 And a sweet alert will show on the page when the user completes the registration or login correctly.
 
 * When the user completes the registration or login, his name and picture will be shown in the navbar. And he can go to private routes.
+
+* i have implemented a dark and light theme toggle on check button in navbar.

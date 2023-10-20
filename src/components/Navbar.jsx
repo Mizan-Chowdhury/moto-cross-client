@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../routersAndRoot/AuthProvider";
 import Swal from "sweetalert2";
-
 const avater = "https://i.ibb.co/sPb5G3G/585e4bcdcb11b227491c3396-1.png";
 
 const Navbar = () => {
@@ -18,14 +17,13 @@ const Navbar = () => {
     document.querySelector("html").setAttribute("data-theme", localTheme);
   }, [theme]);
 
-  const handleDarkTheme = (e) =>{
-    if(e.target.checked){
-      setTheme('dark')
-
-    }else{
-      setTheme('light')
+  const handleDarkTheme = (e) => {
+    if (e.target.checked) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
     }
-  }
+  };
 
   const handleLogOut = () => {
     if (user) {
@@ -64,8 +62,8 @@ const Navbar = () => {
 
   return (
     <div
-      className={`navbar fixed z-[3] px-3 md:px-10 top-0 left-0 right-0 ${
-        fix ? "nav fix-nav" : "nav"
+      className={`navbar fixed z-[3] p-4 md:px-10 top-0 left-0 right-0 ${
+        fix ? "nav" : ""
       }`}
     >
       <div className="navbar-start">
@@ -86,11 +84,12 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end flex items-center gap-5">
-        <label className="swap swap-rotate">
-          <input 
-          onClick={handleDarkTheme}
-          checked={theme === 'light'? false : true}
-          type="checkbox" />
+        <label className="swap swap-rotate text-[#b3b3b3]">
+          <input
+            onClick={handleDarkTheme}
+            checked={theme === "light" ? false : true}
+            type="checkbox"
+          />
           <svg
             className="swap-on fill-current w-10 h-10"
             xmlns="http://www.w3.org/2000/svg"

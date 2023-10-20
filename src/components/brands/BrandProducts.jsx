@@ -23,7 +23,7 @@ const BrandProducts = () => {
   return (
     <div className="mb-32">
       <Adsbaneer></Adsbaneer>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-32 px-4 lg:px-32">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-32 px-3 lg:px-32">
         {brandProduct.map((product) => (
           <ProductCard key={product._id} product={product}></ProductCard>
         ))}

@@ -57,7 +57,7 @@ const Login = () => {
 
 
   return (
-    <div className="card shadow-2xl bg-base-100 max-w-md mx-auto mt-32">
+    <div className="card shadow-2xl bg-base-100 max-w-md mx-auto my-32">
       <h1 className="text-5xl font-bold text-center mt-5 text-[#EEA72B]">
         Login now!
       </h1>

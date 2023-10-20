@@ -6,10 +6,10 @@ import Login from "../components/Login";
 import BrandProducts from "../components/brands/BrandProducts";
 import ProductDetails from "../components/brands/ProductDetails";
 import MyCart from "../components/myCarts/MyCart";
-import UpdateForm from "../components/myCarts/updateProduct/UpdateForm";
 import Register from "../components/Register";
 import PrivateRouter from "./PrivateRouter";
 import Error from "../components/Error";
+import UpdateForm from "../components/updateProduct/UpdateForm";
 
 const myRouter = createBrowserRouter([
   {
@@ -34,7 +34,7 @@ const myRouter = createBrowserRouter([
         element: <BrandProducts></BrandProducts>,
         loader: () =>
           fetch(
-            `https://moto-cross-server-side-k28hjnojl-mizan-chowdhurys-projects.vercel.app/product`
+            `https://moto-cross-server-side-m3zxac7gg-mizan-chowdhurys-projects.vercel.app/product`
           ),
       },
       {
@@ -46,7 +46,7 @@ const myRouter = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://moto-cross-server-side-k28hjnojl-mizan-chowdhurys-projects.vercel.app/product/${params.id}`
+            `https://moto-cross-server-side-m3zxac7gg-mizan-chowdhurys-projects.vercel.app/product/${params.id}`
           ),
       },
       {
@@ -58,7 +58,7 @@ const myRouter = createBrowserRouter([
         ),
         loader: () =>
           fetch(
-            "https://moto-cross-server-side-k28hjnojl-mizan-chowdhurys-projects.vercel.app/cart"
+            "https://moto-cross-server-side-m3zxac7gg-mizan-chowdhurys-projects.vercel.app/cart"
           ),
       },
       {

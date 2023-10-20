@@ -26,7 +26,7 @@ const UpdateForm = () => {
     console.log(updateProduct, id);
 
     fetch(
-      `https://moto-cross-server-side-k28hjnojl-mizan-chowdhurys-projects.vercel.app/product/${id}`,
+      `https://moto-cross-server-side-m3zxac7gg-mizan-chowdhurys-projects.vercel.app/product/${id}`,
       {
         method: "PUT",
         headers: {

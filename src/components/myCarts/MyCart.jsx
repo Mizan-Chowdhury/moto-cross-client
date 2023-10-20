@@ -19,7 +19,7 @@ const MyCart = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://moto-cross-server-side-k28hjnojl-mizan-chowdhurys-projects.vercel.app/cart/${_id}`,
+          `https://moto-cross-server-side-m3zxac7gg-mizan-chowdhurys-projects.vercel.app/cart/${_id}`,
           {
             method: "DELETE",
           }

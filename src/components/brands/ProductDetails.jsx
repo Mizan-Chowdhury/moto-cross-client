@@ -17,7 +17,7 @@ const ProductDetails = () => {
 
   const handleAddProduct = (product) => {
     fetch(
-      "https://moto-cross-server-side-k28hjnojl-mizan-chowdhurys-projects.vercel.app/cart",
+      "https://moto-cross-server-side-m3zxac7gg-mizan-chowdhurys-projects.vercel.app/cart",
       {
         method: "POST",
         headers: {
