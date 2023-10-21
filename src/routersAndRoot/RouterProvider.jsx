@@ -34,7 +34,7 @@ const myRouter = createBrowserRouter([
         element: <BrandProducts></BrandProducts>,
         loader: () =>
           fetch(
-            `https://moto-cross-server-side-m3zxac7gg-mizan-chowdhurys-projects.vercel.app/product`
+            `https://moto-cross-server-side-p5j6q7cm5-mizan-chowdhurys-projects.vercel.app/product`
           ),
       },
       {
@@ -46,7 +46,7 @@ const myRouter = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://moto-cross-server-side-m3zxac7gg-mizan-chowdhurys-projects.vercel.app/product/${params.id}`
+            `https://moto-cross-server-side-p5j6q7cm5-mizan-chowdhurys-projects.vercel.app/product/${params.id}`
           ),
       },
       {
@@ -56,10 +56,6 @@ const myRouter = createBrowserRouter([
             <MyCart></MyCart>
           </PrivateRouter>
         ),
-        loader: () =>
-          fetch(
-            "https://moto-cross-server-side-m3zxac7gg-mizan-chowdhurys-projects.vercel.app/cart"
-          ),
       },
       {
         path: "/login",

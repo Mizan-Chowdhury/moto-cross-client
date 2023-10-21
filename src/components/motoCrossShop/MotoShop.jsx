@@ -10,7 +10,6 @@ const MotoShop = () => {
       .then((data) => setProducts(data));
   }, []);
 
-  console.log(products);
   return (
     <div className="my-20">
       <h1 className="text-center text-5xl font-bold text-[#EEA72B] mb-20">

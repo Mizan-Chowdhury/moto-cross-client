@@ -23,7 +23,7 @@ const MyProduct = () => {
     };
     console.log(newProduct);
     fetch(
-      "https://moto-cross-server-side-m3zxac7gg-mizan-chowdhurys-projects.vercel.app/product",
+      "https://moto-cross-server-side-p5j6q7cm5-mizan-chowdhurys-projects.vercel.app/product",
       {
         method: "POST",
         headers: {

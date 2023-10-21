@@ -1,11 +1,18 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../routersAndRoot/AuthProvider";
 
 const ProductDetails = () => {
+  const { user } = useContext(AuthContext);
   const { name, brand, photo, type, price, description, rating } =
     useLoaderData();
 
+  console.log(user.email);
+  const currentUser = user?.email;
+
   const cartProduct = {
+    currentUser,
     name,
     brand,
     photo,
@@ -14,10 +21,11 @@ const ProductDetails = () => {
     description,
     rating,
   };
+  // https://moto-cross-server-side-p5j6q7cm5-mizan-chowdhurys-projects.vercel.app
 
   const handleAddProduct = (product) => {
     fetch(
-      "https://moto-cross-server-side-m3zxac7gg-mizan-chowdhurys-projects.vercel.app/cart",
+      "https://moto-cross-server-side-p5j6q7cm5-mizan-chowdhurys-projects.vercel.app/cart",
       {
         method: "POST",
         headers: {

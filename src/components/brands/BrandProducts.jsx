@@ -7,7 +7,7 @@ const BrandProducts = () => {
   const brand = useParams();
   const products = useLoaderData();
 
-  if (products.length < 0) {
+  if (products.length === 0) {
     return (
       <>
         <Adsbaneer></Adsbaneer>

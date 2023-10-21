@@ -20,14 +20,14 @@ const images = [
 const OurGallery = () => {
   return (
     <div className="mb-20">
-      <h1 className="text-center text-5xl font-bold text-[#EEA72B] mb-10">
+      <h1 className="text-center text-5xl font-bold text-[#EEA72B]">
         Our Riders
       </h1>
-      <div className="grid grid-cols-2 md:grid-cols-4 justify-between px-4 md:px-32 gap-2">
+      <div className="grid grid-cols-1 md:grid-cols-4 justify-between lg:px-32 gap-10">
         {images.map((image, index) => (
           <div key={index}>
-            <img className="h-72" src={image.url} alt="" />
-            <h1 className="text-center font-bold">{image.title}</h1>
+            <img className="md:h-72 w-full mt-10" src={image.url} alt="" />
+            <h1 className="text-center text-xl font-bold">{image.title}</h1>
           </div>
         ))}
       </div>
