@@ -5,11 +5,10 @@ import AllProductsCard from "./AllProductsCard";
 
 const AllProducts = () => {
   const [products, setProducts] = useState();
-  const [itemsPerPages, setItemsPerPages] = useState(4);
+  const [itemsPerPages, setItemsPerPages] = useState(5);
   const [currenPage, setCurrentPage] = useState(0);
   const { result } = useLoaderData();
   const numberOfPages = Math.ceil(result / itemsPerPages);
-
   const pages = [...Array(numberOfPages).keys()];
 
   useEffect(() => {
@@ -41,8 +40,8 @@ const AllProducts = () => {
   };
 
   return (
-    <div>
-      <div className="grid grid-cols-4 w-11/12 mx-auto gap-10">
+    <div className="py-32">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {products?.map((product) => (
           <AllProductsCard
             key={product._id}
@@ -50,9 +49,8 @@ const AllProducts = () => {
           ></AllProductsCard>
         ))}
       </div>
-      <p className="text-center">The curren page is : {currenPage}</p>
 
-      <div className="flex justify-center gap-2">
+      <div className="flex flex-wrap justify-center gap-2 mt-20">
         <button className="btn" onClick={handlePrePage}>
           Previous
         </button>
@@ -74,7 +72,7 @@ const AllProducts = () => {
           name=""
           id=""
         >
-          <option value="4">4</option>
+          <option value="5">5</option>
           <option value="10">10</option>
           <option value="20">20</option>
           <option value="50">50</option>

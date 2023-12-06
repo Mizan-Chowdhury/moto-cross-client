@@ -24,18 +24,15 @@ const UpdateForm = () => {
       rating,
     };
 
-    console.log(updateProduct, id);
+    console.log(updateProduct, _id);
 
-    fetch(
-      `https://moto-cross-server-side-p5j6q7cm5-mizan-chowdhurys-projects.vercel.app/product/${id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updateProduct),
-      }
-    )
+    fetch(`https://moto-cross-server-side.vercel.app/product/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateProduct),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -60,7 +57,7 @@ const UpdateForm = () => {
               <span className="font-semibold">Photo url</span>
             </label>
             <input
-            defaultValue={photo}
+              defaultValue={photo}
               required
               type="text"
               name="photo"
@@ -73,7 +70,7 @@ const UpdateForm = () => {
               <span className="font-semibold">Product name</span>
             </label>
             <input
-            defaultValue={name}
+              defaultValue={name}
               required
               type="text"
               name="name"
@@ -87,7 +84,11 @@ const UpdateForm = () => {
             <label className="label">
               <span className="font-semibold">Brand name</span>
             </label>
-            <select className="select select-bordered w-full" defaultValue={brand} name="brand">
+            <select
+              className="select select-bordered w-full"
+              defaultValue={brand}
+              name="brand"
+            >
               <option selected>Yamaha</option>
               <option>Suzuki</option>
               <option>TVS Apache</option>
@@ -100,7 +101,11 @@ const UpdateForm = () => {
             <label className="label">
               <span className="font-semibold">Product type</span>
             </label>
-            <select className="select select-bordered w-full" defaultValue={type} name="type">
+            <select
+              className="select select-bordered w-full"
+              defaultValue={type}
+              name="type"
+            >
               <option selected>Sport bike</option>
               <option>Naked bike</option>
               <option>Touring bike</option>
@@ -116,7 +121,7 @@ const UpdateForm = () => {
               <span className="font-semibold">Price</span>
             </label>
             <input
-            defaultValue={price}
+              defaultValue={price}
               required
               type="text"
               name="price"
@@ -129,7 +134,7 @@ const UpdateForm = () => {
               <span className="font-semibold">Rating</span>
             </label>
             <input
-            defaultValue={rating}
+              defaultValue={rating}
               required
               type="text"
               name="rating"

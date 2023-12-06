@@ -4,7 +4,6 @@ const AllProductsCard = ({ product }) => {
   const { _id, name, photo, type, brand, price, rating, description } = product;
 
   return (
-    <div>
       <div className="card bg-base-100 shadow-xl">
         <figure className="md:h-60">
           <img className="h-full w-full" src={photo} alt="" />
@@ -46,7 +45,6 @@ const AllProductsCard = ({ product }) => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

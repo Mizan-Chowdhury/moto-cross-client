@@ -12,7 +12,7 @@ const MyCart = () => {
   const currentUser = user?.email;
   console.log(currentUser);
   console.log(carts.length);
-  // https://moto-cross-server-side-p5j6q7cm5-mizan-chowdhurys-projects.vercel.app
+  // https://moto-cross-server-side.vercel.app
   const url = `https://moto-cross-server-side.vercel.app/cart/${currentUser}`;
 
   useEffect(() => {
@@ -45,12 +45,9 @@ const MyCart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://moto-cross-server-side-p5j6q7cm5-mizan-chowdhurys-projects.vercel.app/cart/${_id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`https://moto-cross-server-side.vercel.app/cart/${_id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

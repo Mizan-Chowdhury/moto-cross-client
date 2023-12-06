@@ -21,19 +21,16 @@ const ProductDetails = () => {
     description,
     rating,
   };
-  // https://moto-cross-server-side-p5j6q7cm5-mizan-chowdhurys-projects.vercel.app
+  // https://moto-cross-server-side.vercel.app
 
   const handleAddProduct = (product) => {
-    fetch(
-      "https://moto-cross-server-side-p5j6q7cm5-mizan-chowdhurys-projects.vercel.app/cart",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(product),
-      }
-    )
+    fetch("https://moto-cross-server-side.vercel.app/cart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

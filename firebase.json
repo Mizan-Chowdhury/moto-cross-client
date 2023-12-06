@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "target":"moto-cross-cb",
+    "site": "motocross",
     "public": "dist",
     "ignore": [
       "firebase.json",

@@ -22,16 +22,13 @@ const MyProduct = () => {
       rating,
     };
     console.log(newProduct);
-    fetch(
-      "https://moto-cross-server-side-p5j6q7cm5-mizan-chowdhurys-projects.vercel.app/product",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newProduct),
-      }
-    )
+    fetch("https://moto-cross-server-side.vercel.app/product", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newProduct),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

@@ -12,7 +12,7 @@ const BrandProducts = () => {
   useEffect(() => {
     axios
       .get(
-        `https://moto-cross-server-side.vercel.app/product?brand=${brand.name}`,
+        `https://moto-cross-server-side.vercel.app/products?brand=${brand.name}`,
         {
           withCredentials: true,
         }
@@ -35,7 +35,7 @@ const BrandProducts = () => {
   return (
     <div className="mb-32">
       <Adsbaneer></Adsbaneer>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-32 px-3 lg:px-32">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-32 px-3">
         {products?.map((product) => (
           <ProductCard key={product._id} product={product}></ProductCard>
         ))}

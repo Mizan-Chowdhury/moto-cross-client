@@ -52,7 +52,7 @@ const myRouter = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://moto-cross-server-side-p5j6q7cm5-mizan-chowdhurys-projects.vercel.app/product/${params.id}`
+            `https://moto-cross-server-side.vercel.app/product/${params.id}`
           ),
       },
       {

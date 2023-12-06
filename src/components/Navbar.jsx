@@ -66,7 +66,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`navbar fixed z-[3] p-4 md:px-10 top-0 left-0 right-0 ${
+      className={`navbar fixed max-w-screen-2xl mx-auto z-[3] p-4 md:px-10 top-0 left-0 right-0 ${
         fix ? "nav" : ""
       }`}
     >
