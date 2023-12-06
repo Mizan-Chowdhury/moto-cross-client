@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "assigments-de09b"
-  }
+  },
+  "targets": {
+    "assigments-de09b": {
+      "hosting": {
+        "moto-cross": [
+          "moto-cross-45"
+        ],
+        "moto-cross-cb": [
+          "moto-cross-cb"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

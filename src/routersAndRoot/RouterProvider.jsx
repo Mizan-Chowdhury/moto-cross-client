@@ -10,6 +10,7 @@ import Register from "../components/Register";
 import PrivateRouter from "./PrivateRouter";
 import Error from "../components/Error";
 import UpdateForm from "../components/updateProduct/UpdateForm";
+import AllProducts from "../components/allProducts/AllProducts";
 
 const myRouter = createBrowserRouter([
   {
@@ -30,12 +31,17 @@ const myRouter = createBrowserRouter([
         ),
       },
       {
+        path: "/allProducts",
+        element: (
+          <PrivateRouter>
+            <AllProducts></AllProducts>
+          </PrivateRouter>
+        ),
+        loader: () => fetch("https://moto-cross-server-side.vercel.app/count"),
+      },
+      {
         path: "/brand/:name",
         element: <BrandProducts></BrandProducts>,
-        loader: () =>
-          fetch(
-            `https://moto-cross-server-side-p5j6q7cm5-mizan-chowdhurys-projects.vercel.app/product`
-          ),
       },
       {
         path: "/details/:id",
@@ -72,6 +78,10 @@ const myRouter = createBrowserRouter([
             <UpdateForm></UpdateForm>
           </PrivateRouter>
         ),
+        loader: ({ params }) =>
+          fetch(
+            `https://moto-cross-server-side.vercel.app/product/${params.id}`
+          ),
       },
     ],
   },

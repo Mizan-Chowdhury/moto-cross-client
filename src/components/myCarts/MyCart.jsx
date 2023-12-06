@@ -3,6 +3,7 @@ import CartProduct from "./CartProduct";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../routersAndRoot/AuthProvider";
 import ProductError from "../brands/ProductError";
+import axios from "axios";
 
 const MyCart = () => {
   const [carts, setCarts] = useState([]);
@@ -11,16 +12,17 @@ const MyCart = () => {
   const currentUser = user?.email;
   console.log(currentUser);
   console.log(carts.length);
+  // https://moto-cross-server-side-p5j6q7cm5-mizan-chowdhurys-projects.vercel.app
+  const url = `https://moto-cross-server-side.vercel.app/cart/${currentUser}`;
 
   useEffect(() => {
-    fetch(
-      `https://moto-cross-server-side-p5j6q7cm5-mizan-chowdhurys-projects.vercel.app/cart/${currentUser}`
-    )
-      .then((res) => res.json())
-      .then((data) => setCarts(data));
-  }, [currentUser]);
+    axios.get(url, { withCredentials: true }).then((res) => {
+      console.log(res.data);
+      setCarts(res.data);
+    });
+  }, [url]);
 
-  if (carts.length === 0) {
+  if (carts?.length === 0) {
     return <ProductError></ProductError>;
   }
 
@@ -64,7 +66,7 @@ const MyCart = () => {
   return (
     <div className="py-32">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-center px-4 lg:px-28">
-        {carts.map((cart) => (
+        {carts?.map((cart) => (
           <CartProduct
             key={cart._id}
             cart={cart}

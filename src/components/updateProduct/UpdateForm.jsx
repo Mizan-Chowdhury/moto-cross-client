@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateForm = () => {
-  const { id } = useParams();
+  const product = useLoaderData();
+  const { _id, name, photo, type, brand, price, rating, description } = product;
 
   const handleForm = (e) => {
     e.preventDefault();
@@ -59,6 +60,7 @@ const UpdateForm = () => {
               <span className="font-semibold">Photo url</span>
             </label>
             <input
+            defaultValue={photo}
               required
               type="text"
               name="photo"
@@ -71,6 +73,7 @@ const UpdateForm = () => {
               <span className="font-semibold">Product name</span>
             </label>
             <input
+            defaultValue={name}
               required
               type="text"
               name="name"
@@ -84,7 +87,7 @@ const UpdateForm = () => {
             <label className="label">
               <span className="font-semibold">Brand name</span>
             </label>
-            <select className="select select-bordered w-full" name="brand">
+            <select className="select select-bordered w-full" defaultValue={brand} name="brand">
               <option selected>Yamaha</option>
               <option>Suzuki</option>
               <option>TVS Apache</option>
@@ -97,7 +100,7 @@ const UpdateForm = () => {
             <label className="label">
               <span className="font-semibold">Product type</span>
             </label>
-            <select className="select select-bordered w-full" name="type">
+            <select className="select select-bordered w-full" defaultValue={type} name="type">
               <option selected>Sport bike</option>
               <option>Naked bike</option>
               <option>Touring bike</option>
@@ -113,6 +116,7 @@ const UpdateForm = () => {
               <span className="font-semibold">Price</span>
             </label>
             <input
+            defaultValue={price}
               required
               type="text"
               name="price"
@@ -125,6 +129,7 @@ const UpdateForm = () => {
               <span className="font-semibold">Rating</span>
             </label>
             <input
+            defaultValue={rating}
               required
               type="text"
               name="rating"

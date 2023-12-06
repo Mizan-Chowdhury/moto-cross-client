@@ -5,56 +5,53 @@ import { AuthContext } from "../routersAndRoot/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
-    const {googleSignIn} = useContext(AuthContext)
-    const {signInUser} = useContext(AuthContext);
-    const [error, setError] = useState('');
-    const location = useLocation();
-    const navigate = useNavigate();
-    console.log(location);
-
+  const { googleSignIn } = useContext(AuthContext);
+  const { signInUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email,password)
 
-    signInUser(email,password)
-    .then(res=> {
-        console.log(res.user)
+    signInUser(email, password)
+      .then((res) => {
+        console.log(res.user);
         Swal.fire(
-            'Congratulations!',
-            'You have successfully logged.',
-            'success'
-          )
-          form.reset()
-          setError('');
-          navigate(location?.state? location.state : '/')
-    })
-    .catch(err=>{console.log(err.message)
-        setError(err.message)
-    });
-
+          "Congratulations!",
+          "You have successfully logged.",
+          "success"
+        );
+        
+              // form.reset();
+              setError("");
+              navigate(location?.state ? location.state : "/");
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setError(err.message);
+      });
   };
 
   const handleGoogleLogin = (e) => {
     e.preventDefault();
     googleSignIn()
-    .then(res=> {
-        console.log(res.user)
+      .then((res) => {
+        console.log(res.user);
         Swal.fire(
-            'Congratulations!',
-            'You have successfully logged.',
-            'success'
-          )
-          navigate(location?.state? location.state : '/')
-    })
-    .catch(err=>{
+          "Congratulations!",
+          "You have successfully logged.",
+          "success"
+        );
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((err) => {
         console.log(err);
-    })
+      });
   };
-
 
   return (
     <div className="card shadow-2xl bg-base-100 max-w-md mx-auto my-32">
