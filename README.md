@@ -1,9 +1,8 @@
 
 # MotoCross
 
-## [ Live Site Link](https://assigments-de09b.web.app)
+## [ Live Site Link](https://motocross-2.web.app)
 
-Click here for the private repo: [https://assigments-de09b.web.app](https://assigments-de09b.web.app)
 
 ## Some Features of my project
 * I have created a Automotive category website. My website homepage has a navbar, banner, footer and some important sections. I made the navbar sticky.

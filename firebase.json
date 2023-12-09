@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "motocross",
+    "site":"motocross-2",
     "public": "dist",
     "ignore": [
       "firebase.json",
